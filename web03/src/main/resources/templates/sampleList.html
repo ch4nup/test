@@ -1,0 +1,24 @@
+<html xmlns:th= "http://www.thymeleaf.org">
+<head>
+</head>
+<body>
+	<table border=1>
+		<tr>
+			<td>sampleId</td>
+			<td>sampleName</td>
+			<td>수정</td>
+			<td>삭제</td>
+		</tr>
+		<!-- Model영역에 세팅된 데이터 받기 -->
+		<tr th:each="s : ${listSample}">
+		<!-- 각각의 Sample객체에 세팅된 데이터 출력하기 -->	
+			<td th:text="${s.sampleId}"></td>
+			<td th:text="${s.sampleName}"></td>
+			<!-- 변수 sampleId에 복사된 값을 updateSample로 보내기 -->
+			<td><a th:href = "@{/updateSample(sampleId=${s.sampleId})}">수정</a></td>
+			<!-- 변수 sampleId에 복사된 값을 deleteSample로 보내기 -->
+			<td><a th:href = "@{/deleteSample(sampleId=${s.sampleId})}">삭제</a></td>
+		</tr>
+	</table>
+</body>
+</html>

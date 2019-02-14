@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eteam.web03.mapper.SampleMapper">
+	<!-- 리스트 처리하는 select 쿼리문 -->
+	<select id="selectSampleList" resultType="com.eteam.web03.vo.Sample">
+		SELECT
+			sample_id as sampleId, 
+			sample_name as sampleName
+		FROM sample
+	</select>
+	
+	<!-- 화면처리하는 select 쿼리문 -->
+	<select id="selectSampleOne" resultType="com.eteam.web03.vo.Sample">
+		SELECT
+			sample_id as sampleId, 
+			sample_name as sampleName
+		FROM sample
+		WHERE sample_id=#{sampleId}
+	</select>
+	
+	<!-- insert 쿼리문 -->
+	<insert id="insertSample" parameterType="com.eteam.web03.vo.Sample">
+		INSERT INTO sample(
+			sample_name
+		) VALUES (
+			#{sampleName}	<!-- sample.getSampleName -->
+		)
+	</insert>
+	
+	<!-- delete 쿼리문 -->
+	<delete id="deleteSample" parameterType="com.eteam.web03.vo.Sample">
+		DELETE FROM sample
+		WHERE sample_id=#{sampleId}
+	</delete>
+	
+	<!-- update 쿼리문 -->
+	<update id="updateSample" parameterType="com.eteam.web03.vo.Sample">
+		UPDATE sample
+		SET sample_name=#{sampleName}
+		WHERE sample_id=#{sampleId}
+	</update>
+</mapper>

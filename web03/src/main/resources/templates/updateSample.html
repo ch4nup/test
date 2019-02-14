@@ -1,0 +1,12 @@
+<html xmlns:th= "http://www.thymeleaf.org">
+
+<!-- Model영역에 세팅된 변수 sample에 복사된 값 받기 -->
+<div th:each="s : ${sample}">
+<!-- 수정폼에 입력된 데이터들을 post방식으로 updateSample로 보냄 -->
+<form action = "${request.getContextPath()}/updateSample" method="post">
+	<!-- Sample객체 내 세팅된 변수 sampleId, sampleName에 복사된 값 출력 -->
+	<input type="text" name="sampleId" th:value="${s.sampleId}" readonly>
+	<input type="text" name="sampleName" th:value="${s.sampleName}">
+	<input type="submit" value="이름수정">
+</form>
+</div>

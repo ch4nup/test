@@ -1,0 +1,5 @@
+<!-- 화면에 입력된 데이터를 sampleName변수에 복사하여 post방식으로 /addSample 경로로 보낸다 -->
+<form action = "${request.getContextPath()}/addSample" method="post">
+	<input type="text" name="sampleName">
+	<input type="submit" value="이름입력">
+</form>
